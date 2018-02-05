@@ -13,12 +13,18 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "normalizr": "^3.2.4",
     "vue": "^2.5.2",
     "vue-class-component": "^6.1.2",
-    "vue-router": "^3.0.1"
+    "vue-property-decorator": "^6.0.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "awesome-typescript-loader": "^3.4.1",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-jest": "^21.0.2",

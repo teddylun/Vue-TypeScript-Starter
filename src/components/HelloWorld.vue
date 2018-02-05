@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1 @click="onClick">{{ msg }}</h1>
+    <h1 @click="msgOnClick">{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -23,15 +23,26 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import { Provide } from 'vue-property-decorator'
+import { Action, Getter, namespace } from 'vuex-class'
+import { News } from '../store/modules/hackerNews/types'
+const HackerNewsGetter = namespace('hackerNews', Getter)
 
 @Component({
   name: 'HelloWorld'
 })
-
 export default class HelloWorld extends Vue {
+  @HackerNewsGetter
+  news: Array<News>
+
+  @Action('hackerNews/GET_HACKER_NEWS') getHackerNews
+  @Provide()
   msg: string = 'Good to TS in Your Vue.js App'
-  onClick (): void {
+  msgOnClick (): void {
     console.log('msg onclick')
+  }
+  created () {
+    this.getHackerNews()
   }
 }
 </script>

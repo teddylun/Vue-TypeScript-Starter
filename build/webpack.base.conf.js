@@ -32,11 +32,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.ts|js?$/,
         loader: "ts-loader",
         options: {
           appendTsSuffixTo: [/\.vue$/]
-        }
+        },
+        exclude: /node_modules/
       },
       {
         test: /\.vue$/,
