@@ -16,7 +16,6 @@ export const actions: ActionTree<HackerNewsState, any> = {
       let results: AxiosResponse<any>
       results = await axios.get('https://hacker-news.firebaseio.com/v0/newstories.json')
       commit('GET_HACKER_NEWS', results.data)
-      console.log('hah')
       return results
     } catch (e) {
       console.log(e)
